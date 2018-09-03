@@ -1,4 +1,4 @@
-# Queue't - Slutprojekt
+# Queue't - Final project
 
 ## Problem
 Waiting for a free table at a busy restaurant can be frustrating and boring. Sometimes there is limited information about the waiting time which can make you uncertain about whether or not to look for another place. You can not leave the restaurant in risk of losing your place in line, even though it can be crowded. To constantly be on hold prevents you from relaxing and enjoying your company during your wait. 
