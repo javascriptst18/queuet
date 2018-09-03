@@ -25,3 +25,7 @@ Guests at restaurants and restaurant staff.
 - A rating function available for the guest after the the restaurant visit. 
 - Different "user levels" depending on how many times the guest has visited the restaurant.
 - Ability for a guest company to share the bill.
+
+## Internal Communication
+- Important documents, as a translation guide, user stories and more, can be found in the team's shared [Google Drive folder] (https://drive.google.com/open?id=1DIkqPwiQDiK0nnmSl-zfyD2jNo36Df8q). 
+- The project's process is tracked on the team's [Trello board] (https://trello.com/b/OcwggZqN).
