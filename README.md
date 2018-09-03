@@ -27,5 +27,5 @@ Guests at restaurants and restaurant staff.
 - Ability for a guest company to share the bill.
 
 ## Internal Communication
-- Important documents, as a translation guide, user stories and more, can be found in the team's shared [Google Drive folder] (https://drive.google.com/open?id=1DIkqPwiQDiK0nnmSl-zfyD2jNo36Df8q). 
+- Important documents, such as a translation guide, user stories, a guide to version control and more, can be found in the team's shared [Google Drive folder] (https://drive.google.com/open?id=1DIkqPwiQDiK0nnmSl-zfyD2jNo36Df8q). 
 - The project's process is tracked on the team's [Trello board] (https://trello.com/b/OcwggZqN).
