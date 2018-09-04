@@ -36,4 +36,4 @@ let queueDummy = [
     }
 ];
 
-export let queueDummy;
+export default queueDummy;
