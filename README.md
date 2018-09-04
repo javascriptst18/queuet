@@ -21,6 +21,7 @@ Guests at restaurants and restaurant staff.
 - The guest can view the restaurant's menu.
 - The guest can choose not to accept a free table and "move down" a step in line, leaving the table free for another guest.
 - Ability for everyone in the company to monitor the queuing, through a "sharing" function.  
+- Different language choices (English and Swedish).
 - Information about free tables at close-by restaurants. 
 - A rating function available for the guest after the the restaurant visit. 
 - Different "user levels" depending on how many times the guest has visited the restaurant.
