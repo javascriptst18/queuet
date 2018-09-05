@@ -1,15 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 function Party(props) {
     return (
-        <div>
+        <div style={{
+            border: "black solid 3px",
+            padding: "0 1rem 1rem 1rem",
+            margin: "1rem"
+        }}>
+            <p>Place in line:</p>
             <p>{props.name}</p>
-            <p>{props.numberOfGuests}</p>
-            <p>{props.phone}</p>
-            <p>{props.code}</p>
-            <p>{props.currentWaitingTime}</p>
-        </div>
+            <p>Party of {props.numberOfGuests}</p>
+            <p>Time left: {props.currentWaitingTime} min</p>
+            <p>Tel: {props.phone}, code: {props.code}</p>
+            <button>Edit</button>
+            <button>Send notification</button>
+            <button onClick={() => props.removeFromQueue(props.code)}>Remove from queue</button>
+        </div >
     );
 }
 
@@ -18,10 +25,9 @@ Party.propTypes = {
     numberOfGuests: PropTypes.number.isRequired,
     phone: PropTypes.string.isRequired,
     code: PropTypes.number.isRequired,
-    currentWaitingTime: PropTypes.number.isRequired
+    currentWaitingTime: PropTypes.number.isRequired,
+    removeFromQueue: PropTypes.func.isRequired
 }
 
 export default Party;
 
-// Funktioner:
-// - Skicka notifikation (1 - Din väntetid har ändrats, 2 - Ditt bord är snart klart 3 - Ditt bord är klart)
