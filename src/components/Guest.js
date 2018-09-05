@@ -4,8 +4,10 @@ import queueDummy from "../queueDummy"
 
 class Guest extends Component {
   state = {
+    isLoggedIn: false,
     loginCode: "",
-    queue: [...queueDummy]
+    queue: [...queueDummy],
+
   };
 
 
@@ -13,24 +15,42 @@ class Guest extends Component {
   handleChange = (event) => {
     event.preventDefault(event);
     this.setState({ [event.target.name]: event.target.value })
-    console.log(this.state.loginCode)
+    /*     console.log(this.state.loginCode) */
   };
 
   handleSubmit = (event) => {
     event.preventDefault(event);
-    console.log("Now the state is:" + this.state.loginCode)
+    console.log("Now the state is:" + this.state.loginCode);
+    let guestInfo = this.state.queue.filter(guest =>
+      guest.code === parseInt(this.state.loginCode));
+    console.log(guestInfo)
+  }
+
+  guestQueue = () => {
+    for (let i = 0; i < this.state.queue.length; i++) {
+      if (this.state.queue[i].code === this.state.loginCode) {
+        console.log(this.state.queue[i].name)
+        /*         return (
+                  <div>
+                    {this.state.queue[1].name}
+                    <button>Delete</button>
+                  </div>
+                ) */
+      } else {
+        console.log("Not there yet.")
+      }
+    }
   }
 
   render() {
-    let guestQueue = () => {
-      if (this.state.queue.code == this.state.loginCode) {
-        return (
-          <div>
-            {this.state.queue[1].name}
-            <button>Delete</button>
-          </div>
-        )
-      }
+    /*     this.guestQueue();
+        console.log("Hej") */
+    /*     console.log(this.state.queue.name)
+     */
+    if (this.state.isLoggedIn === false) {
+      console.log("hej")
+    } else if (this.state.isLoggedIn === true) {
+      console.log("this is where we should see guest inofrmation")
     }
 
     return (
@@ -49,10 +69,11 @@ class Guest extends Component {
           <input name="loginCode" placeholder="four-digit code" onChange={this.handleChange} value={this.state.loginCode}></input>
           <button type="submit">Get in Line</button>
         </form>
-        <div>
-
-        </div>
       </div>
+
+      // <div>
+      //   Hello {this.state.queue[0].name},
+      //   </div>
     );
   }
 }
