@@ -21,10 +21,16 @@ class Guest extends Component {
   handleSubmit = (event) => {
     event.preventDefault(event);
     console.log("Now the state is:" + this.state.loginCode);
-    let guestInfo = this.state.queue.filter(guest =>
-      guest.code === parseInt(this.state.loginCode));
-    console.log(guestInfo)
-  }
+    const guestInfo = this.state.queue.filter(guest =>
+      guest.code === parseInt(this.state.loginCode, 10));
+    if (guestInfo.length > 0) {
+      this.setState({ isLoggedIn: true })
+    } else {
+      this.setState({ isLoggedIn: false })
+    };
+    console.log(guestInfo.length);
+/*     console.log("Login-State: " + this.state.isLoggedIn)
+ */  }
 
   guestQueue = () => {
     for (let i = 0; i < this.state.queue.length; i++) {
@@ -43,14 +49,11 @@ class Guest extends Component {
   }
 
   render() {
-    /*     this.guestQueue();
-        console.log("Hej") */
-    /*     console.log(this.state.queue.name)
-     */
+    console.log(this.state.isLoggedIn);
     if (this.state.isLoggedIn === false) {
-      console.log("hej")
+      console.log("not logged in")
     } else if (this.state.isLoggedIn === true) {
-      console.log("this is where we should see guest inofrmation")
+      console.log("logged in")
     }
 
     return (
