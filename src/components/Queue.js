@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Party from "./Party";
 import queueDummy from "../queueDummy";
 
 class Queue extends Component {
@@ -7,10 +8,19 @@ class Queue extends Component {
     }
 
     render() {
+        const totalQueue = this.state.queue.map(party => {
+            return <Party
+                name={party.name}
+                numberOfGuests={party.numberOfGuests}
+                phone={party.phone}
+                code={party.code}
+                currentWaitingTime={party.currentWaitingTime}
+            />
+        });
+
         return (
             <div>
-                <h1>Hello World!</h1>
-                <h2>{this.state.queue[1].name}</h2>
+                {totalQueue}
             </div>
         );
     }

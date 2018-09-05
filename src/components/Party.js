@@ -1,26 +1,24 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-class Party extends Component {
-    state = {
-
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>Hello Party!</h1>
-            </div>
-        );
-    }
+function Party(props) {
+    return (
+        <div>
+            <p>{props.name}</p>
+            <p>{props.numberOfGuests}</p>
+            <p>{props.phone}</p>
+            <p>{props.code}</p>
+            <p>{props.currentWaitingTime}</p>
+        </div>
+    );
 }
 
 Party.propTypes = {
-    name: PropTypes.string,
-    numberOfGuests: PropTypes.number,
-    phone: PropTypes.string,
-    code: PropTypes.number,
-    currentWaitingTime: PropTypes.number
+    name: PropTypes.string.isRequired,
+    numberOfGuests: PropTypes.number.isRequired,
+    phone: PropTypes.string.isRequired,
+    code: PropTypes.number.isRequired,
+    currentWaitingTime: PropTypes.number.isRequired
 }
 
 export default Party;
