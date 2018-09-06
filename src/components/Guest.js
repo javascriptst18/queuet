@@ -49,6 +49,11 @@ class Guest extends Component {
     event.preventDefault(event);
     this.setState({ isLoggedIn: false })
   }
+
+  //? Here we can handle the get out of line button
+  handleRemoveClick = (event) => {
+    event.preventDefault(event);
+  }
   render() {
     //Console log tells us whether or not the guest is logged in 
     //so whether or not the array's length in the handleSubmit function 
@@ -73,18 +78,17 @@ class Guest extends Component {
         </div>
       );
     } else if (this.state.isLoggedIn === true) {
-      console.log("logged in");
-      console.log(this.state.currentGuest)
+      console.log("logged in")
     }
 
     const guestCard = this.state.currentGuest.map(guest => {
       return (
         <div key={this.state.loginCode}>
-          <p>{guest.code}</p>
-          <p>{guest.name}</p>
-          <p>{guest.numberOfGuests}</p>
-          <p>{guest.phone}</p>
-          <p>{guest.currentWaitingTime}</p>
+          <p>Code: {guest.code}</p>
+          <p>Name: {guest.name}</p>
+          <p>Number of Guests: {guest.numberOfGuests}</p>
+          <p>Phone number: {guest.phone}</p>
+          <p>Current Wait: {guest.currentWaitingTime} min</p>
         </div>
       )
     })
@@ -93,12 +97,15 @@ class Guest extends Component {
     //! The user is loggedIn even when entering a new code or deleting, until pressing submit
     //! We don't think this is too much of a problem but something we could fix later on 
 
+    //? Get out of line button has no functioanlity yet. 
+    //?We thought about simply hiding the card, even though th guest thinks they deleted it
     return (
       <div>
         <h1>Hello {this.state.currentGuest[0].name}!</h1>
         {guestCard}
+        <button>Get out of line!</button>
         <button onClick={this.handleReturnClick}>Return</button>
-      </div>
+      </div >
     )
   }
 };
