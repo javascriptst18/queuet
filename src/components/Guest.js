@@ -9,7 +9,7 @@ class Guest extends Component {
     isLoggedIn: false,
     loginCode: "",
     queue: [...queueDummy],
-    currentGuest: ""
+    currentGuest: []
   };
 
   //The handleChange function handles the change in 
@@ -34,7 +34,7 @@ class Guest extends Component {
     event.preventDefault(event);
     const guestInfo = this.state.queue.filter(guest =>
       guest.code === parseInt(this.state.loginCode, 10));
-    this.setState({ currentGuest: guestInfo[0].name });
+    this.setState({ currentGuest: guestInfo });
 
     if (guestInfo.length === 1) {
       this.setState({ isLoggedIn: true })
@@ -73,8 +73,21 @@ class Guest extends Component {
         </div>
       );
     } else if (this.state.isLoggedIn === true) {
-      console.log("logged in")
+      console.log("logged in");
+      console.log(this.state.currentGuest)
     }
+
+    const guestCard = this.state.currentGuest.map(guest => {
+      return (
+        <div key={this.state.loginCode}>
+          <p>{guest.code}</p>
+          <p>{guest.name}</p>
+          <p>{guest.numberOfGuests}</p>
+          <p>{guest.phone}</p>
+          <p>{guest.currentWaitingTime}</p>
+        </div>
+      )
+    })
 
     //! Since the isLoggedIn state only changes when the submit-function runs
     //! The user is loggedIn even when entering a new code or deleting, until pressing submit
@@ -82,14 +95,15 @@ class Guest extends Component {
 
     return (
       <div>
-        <h1>Hello {this.state.currentGuest}!</h1>
+        <h1>Hello {this.state.currentGuest[0].name}!</h1>
+        {guestCard}
         <button onClick={this.handleReturnClick}>Return</button>
       </div>
     )
   }
 };
 
-//! Do we need proptypes? How do we use them? Should this component use them? 
+//? Do we need proptypes? How do we use them? Should this component use them? 
 /* Guest.propTypes = {
   name: PropTypes.string,
   numberOfGuests: PropTypes.number,
